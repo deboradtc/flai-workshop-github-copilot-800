@@ -2,6 +2,19 @@
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
+
+API Endpoints:
+    REST API endpoints are available at:
+    - Format: https://$CODESPACE_NAME-8000.app.github.dev/api/[component]/
+    - Example: https://$CODESPACE_NAME-8000.app.github.dev/api/activities/
+    
+    Available endpoints:
+    - /api/users/ - User management
+    - /api/teams/ - Team management
+    - /api/activities/ - Activity tracking
+    - /api/leaderboard/ - Leaderboard rankings
+    - /api/workouts/ - Workout suggestions
+
 Examples:
 Function views
     1. Add an import:  from my_app import views
