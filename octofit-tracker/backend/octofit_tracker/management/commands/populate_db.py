@@ -103,12 +103,23 @@ class Command(BaseCommand):
             total_calories = sum(a.calories_burned for a in activities)
             total_duration = sum(a.duration for a in activities)
             
+            # Calculate total_distance based on activity types and duration
+            total_distance = 0.0
+            for activity in activities:
+                if activity.activity_type == 'Running':
+                    total_distance += activity.duration * 0.15  # ~9 km/h pace
+                elif activity.activity_type == 'Cycling':
+                    total_distance += activity.duration * 0.33  # ~20 km/h pace
+                elif activity.activity_type == 'Swimming':
+                    total_distance += activity.duration * 0.05  # ~3 km/h pace
+            
             Leaderboard.objects.create(
                 user_id=str(user.id),
                 team_id=user.team_id,
                 total_activities=total_activities,
                 total_calories=total_calories,
                 total_duration=total_duration,
+                total_distance=round(total_distance, 2),
                 rank=0  # Will be calculated based on sorting
             )
         

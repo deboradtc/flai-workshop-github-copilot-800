@@ -45,10 +45,12 @@ class Leaderboard(models.Model):
     total_activities = models.IntegerField(default=0)
     total_calories = models.IntegerField(default=0)
     total_duration = models.IntegerField(default=0)  # in minutes
+    total_distance = models.FloatField(default=0.0)  # in kilometers
     rank = models.IntegerField(default=0)
     
     class Meta:
         db_table = 'leaderboard'
+        ordering = ['-total_calories']  # Order by total_calories descending
 
 
 class Workout(models.Model):

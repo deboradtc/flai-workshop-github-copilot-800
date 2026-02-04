@@ -54,7 +54,7 @@ class LeaderboardViewSet(viewsets.ModelViewSet):
     """
     ViewSet for Leaderboard model providing CRUD operations.
     """
-    queryset = Leaderboard.objects.all()
+    queryset = Leaderboard.objects.all().order_by('-total_calories')
     serializer_class = LeaderboardSerializer
 
 
